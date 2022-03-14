@@ -1,5 +1,5 @@
 // added strnicmp, stricmp, strdup
-// added build not for VS2019
+// added build note for VS2019
 
 #include <windows.h>
 #include <limits.h>

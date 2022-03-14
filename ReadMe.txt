@@ -55,6 +55,10 @@ specific changes are not relevant, so I added a previous implementation of
 ctype to the project.
 See comments in the  various files. Added basic file IO functions.
 
+Details regarding MS VC changes:
+
+https://docs.microsoft.com/en-us/cpp/porting/visual-cpp-change-history-2003-2015
+
 ------
 
 Building minicrt:

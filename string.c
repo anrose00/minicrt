@@ -1147,3 +1147,11 @@ char * __cdecl strdup(char const *src) {
     memcpy (dst, src, len);             // Copy the block
     return dst;                         // Return the new string
 }
+
+char * __cdecl strcat(char *destinationString, char const *sourceString)
+{
+   char *insertPtr = destinationString;
+   while (*insertPtr++);
+   strcpy(insertPtr,sourceString);
+   return destinationString;
+}

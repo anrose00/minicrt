@@ -1152,6 +1152,6 @@ char * __cdecl strcat(char *destinationString, char const *sourceString)
 {
    char *insertPtr = destinationString;
    while (*insertPtr++);
-   strcpy(insertPtr,sourceString);
+   strcpy(insertPtr-1,sourceString);
    return destinationString;
 }

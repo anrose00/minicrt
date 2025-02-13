@@ -104,11 +104,11 @@ char *fgets(char * str,int n,FILE * fp)
 
 int fputs ( const char * str, FILE * fp )
 {
-   DWORD stlen=strlen(str);
+   size_t stlen=strlen(str);
    DWORD byteswritten;
    BOOL result;
    
-   result = WriteFile(fp->hFile,str, stlen, &byteswritten,NULL);
+   result = WriteFile(fp->hFile,str, (DWORD)stlen, &byteswritten,NULL);
    if (result && stlen == byteswritten)
       return 0;
    else
@@ -129,18 +129,18 @@ int fputc ( int character, FILE * fp )
 
 size_t fwrite ( const void * ptr, size_t size, size_t count, FILE * fp )
 {
-   DWORD blen=size*count;
+   size_t blen=size*count;
    DWORD byteswritten;
    BOOL result;
    
-   result = WriteFile(fp->hFile,ptr, blen, &byteswritten,NULL);
+   result = WriteFile(fp->hFile,ptr, (DWORD)blen, &byteswritten,NULL);
    if (result && blen == byteswritten)
       return 0;
    else
       return -1;
 }
 
-int __cdecl __stdio_common_vfprintf (FILE * fp, char *fstring, const char *format, ...)
+size_t __cdecl __stdio_common_vfprintf (FILE * fp, char *fstring, const char *format, ...)
 {
    int retValuep;
    size_t retValuef;

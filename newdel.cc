@@ -5,7 +5,7 @@
 #include "libctiny.h"
 #include <windows.h>
 
-void * __cdecl operator new(unsigned int s) {
+void * __cdecl operator new(size_t s) {
   return HeapAlloc( GetProcessHeap(), 0, s );
 }
 
